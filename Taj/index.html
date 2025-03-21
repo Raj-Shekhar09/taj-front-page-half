@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Luxury Hotels & Resorts in India</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .main {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden; 
+         }
+
+        /* Video  */
+        .main video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            z-index: -1; /*  background */
+        }
+
+        .nd {
+            height: 100vh;
+            width: 100%;
+            background-color: aqua;
+        }
+
+        nav {
+            display: flex;
+            gap: 4vw;
+            color: aliceblue;
+            align-items: center;
+            font-size: 17px;
+            margin-left: 2vw;
+            position: relative; /* Keeps nav elements on top of the video */
+            z-index: 1;
+        }
+
+        .leftnav {
+            align-items: center;
+            display: flex;
+            gap: 3vw;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .rightnav {
+            margin-left: 8vw;
+            display: flex;
+            align-items: center;
+            gap: 4vw;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .book {
+            background-color: rgb(186, 142, 35);
+            color: antiquewhite;
+            border: none;
+            font-size: 15px;
+            padding: 10px 25px 10px 25px;
+        }
+
+        /* Styles for the fixed button */
+        .fixed-button {
+            position: fixed;
+            bottom: 30px;  /* Distance from the bottom */
+            right: 50px;    /* Distance from the left */
+            background-color: rgb(186, 142, 35);
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            font-size: 30px;
+            z-index: 2;  /* Ensures it stays above other content */
+        }
+        .srch1{
+           
+            background-color: goldenrod;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            z-index: 1;
+            margin-left: 50%;
+            margin-top: 35%;
+        }
+        
+        .ndhed {  
+          text-align: center;
+          width: 100%;
+          height: 100%;
+          column-gap: 20px;
+          }
+        .global{
+            align-items: center;
+            font-size: 40px;
+            margin-top: 8vh;
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(83, 79, 79);
+        }
+        .details{
+            margin-top: 6vh;
+            font-size: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(117, 108, 108);
+        }
+        .cpn {
+            position: relative;
+            width: 70vw;
+            height: 65vh;
+            margin-left: 14%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            background-image: url('g.jpg'); /* Make sure this path is correct */
+            background-size: cover; /* Use 'cover' for better responsiveness */
+            display: flex;
+            image-rendering: optimizeQuality;
+        }
+
+        .card1, .card2, .card3, .card4 {
+            min-width: 15px;
+            min-height: 35px;
+            width: 24.9%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: all linear;
+            border-left: 1px solid whitesmoke;
+            
+        }
+
+        .card2 {
+            margin-left: 25%;
+        }
+
+        .card3 {
+            margin-left: 50%;
+        }
+
+        .card4 {
+            margin-left: 75%;
+        }
+
+        .fface, .bface {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+        }
+
+        .fface {
+            background-color: blueviolet;
+            color: rgb(250, 248, 248);
+            opacity: 0.2;
+        }
+        
+        .card1:hover .fface, .card2:hover .fface, .card3:hover .fface, .card4:hover .fface {
+            opacity: 0; 
+
+        }
+
+        .bface {
+            background-color: rgb(223, 208, 196);
+            color: antiquewhite;
+            transform: rotateX(180deg);
+            color: rgba(0, 0, 0, 0.8);
+            display: block;
+            align-content: center;
+            opacity: 0.6;
+        }
+
+        .card1:hover, .card2:hover, .card3:hover, .card4:hover {
+            transform: rotateX(180deg);
+
+        }
+
+        h2 {
+            margin-left: 28%;
+        }
+
+        h1 {
+            position: absolute;
+            bottom: 15px;
+            
+        }
+        .fot1{
+            width: 100%;
+            height: 80vh;
+            background-color: black;
+            
+        }
+        .nav9{
+            display: flex;
+            margin-left: 11%;
+            margin-right: 11%;
+            gap: 6vw;
+            border: none;
+            border-bottom: 1px solid white;
+        }
+        .nav92{
+            display: flex;
+        }
+        .hed9{
+            margin-left: 10vw;
+            color: whitesmoke;
+            margin-bottom:5vh ;
+        }
+        .nh1{
+            color: rgb(133, 133, 134);
+            padding-bottom: 10px;
+        }
+        .nh2{
+            color: rgb(133, 133, 134);
+            padding-bottom: 10px;
+            padding-top: 20px;
+            
+        }
+        .last9{
+            background: transparent;
+            color: rgb(249, 245, 239);
+            border: none;
+            border-bottom: 1px solid white;
+        }
+        .nhh02{
+
+            display: flex;
+            gap: 19px;
+            color: rgb(249, 245, 239);
+            padding-bottom: 10px;
+           
+        }
+        .last19{
+            padding: 5px;
+            font-size: 12px;
+            background-color: beige;
+            color: rgb(54, 53, 53);
+            border: none;
+
+        }
+        .nh3{
+            color: rgb(133, 133, 134);
+            padding-bottom: 10px;
+
+        }
+        .nhh03{
+            display: flex;
+            gap:5vw;
+            color: rgb(249, 245, 239);
+            padding-bottom: 20px;
+        }
+        .nj1{
+            color:rgb(133, 133, 134);
+            padding-bottom: 10px;
+        }
+        .nj2{
+            display: flex;
+            gap: 20px;
+            color: aliceblue;
+        }
+        .nk1{
+            color:rgb(133, 133, 134)
+        }
+        .foticons{
+            padding: 20px;
+
+            
+        }
+        .fa-brands{
+            color: aliceblue;
+           margin: 2px;
+        }
+        .lstr{
+            border: none;
+            border: 1px soild white;
+        }
+        .fotpl, .fotpr{
+            display: flex;
+        }
+        .rite{
+            margin-left: 12vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        .leftb{
+            margin-left: 10vw;
+        }
+         
+ 
+  .header9{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    color: white;
+    font-size: 25px;
+    box-sizing: border-box;
+    padding: 0px 200px 0px 10px;
+     }
+.des{
+    font-size: 15px;
+    padding-left: 10vw;
+    color: rgb(133, 133, 134);
+}
+.des{
+    font-size: 25px;
+}
+.content{
+   
+    display: grid;
+    height: 50vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    width: 100%;
+    color:whitesmoke;
+    font-size: 15px;
+    text-align: justify;
+    box-sizing: border-box;
+    justify-content: space-between  ;
+    margin-left: 10vw;
+   
+}
+
+.acc{
+    padding:2px 0px;
+}
+       
+.nav903{
+    margin-left: 165px;
+    padding: 20px;
+    border: none;
+    width: 75vw;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;;
+}
+.brand7{
+    padding: 3px;
+}
+.nav92{
+    color: aliceblue;
+    margin-top: 5vh;
+}
+.fotgirl{
+    width: 100%; 
+    height: 80vh;
+}
+.rgh{
+    font-size: 40px;
+    margin-left: 18vw;
+}
+.rgh2{
+   
+    margin-right: 10vw;
+}
+.footgrl{
+    margin-top: 120px;
+
+}
+
+.cfegrl{
+    height: 30vh;
+    display: flex;
+    gap: 30vw;
+    
+}
+.exp{
+    margin-top: 30px;
+}
+
+.lm1{
+            display: flex;
+            gap:10vw;
+        }
+        .lm10{
+            font-size: 40px;
+            margin-left: 10VW;  
+        }
+        .lm11{
+            margin-right: 10VW;
+            margin-top: 7vh;
+        }
+        .imgcrds{
+            display: flex;
+            gap: 6vw;
+            justify-content: center;
+            margin-top: 10vh; 
+        }
+        .hotl1{
+            width: 20vw;
+            height: 34vh;  
+        }
+        .immg1{
+            width: 320px;
+           position: absolute;
+           box-sizing: border-box;
+           height: fit-content;
+        }
+        .hor1{
+            background-color: transparent;
+            background-image: url("hotl1.avif");
+            width: fit-content;;
+        }
+        .wr1{
+            background-color: #b9bcb8;
+            display: inline;
+            position: absolute;
+           height: 50px;
+           width: 200px;
+          margin-top: 31vh; 
+          display: flex;
+          margin-left: 81px;
+         padding-left: 40px;
+        }
+        .anchw{
+            background-color: #fff;
+        }
+
+
+
+
+        @media (max-width: 480px) {
+
+.n1 ,.bface ,.fface{
+    display: none;
+    gap:10vw;
+}
+.srch1{
+           
+           background-color: goldenrod;
+           color: white;
+           padding: 10px 20px;
+           font-size: 16px;
+           border: none;
+           border-radius: 50px;
+           z-index: 1;
+           margin-left: 50%;
+           margin-top: 85%;
+       }
+
+       .imgcrds{      
+           width: 100%;
+            justify-content: center;
+            margin-top: 10vh;
+            }
+           .rgh2 {
+            display: none;
+           }
+            .foot2 .nav91{
+                display: none;
+            }
+            .nk1{
+                margin-left: 0%;
+            }
+            .nav903{
+            display: none;
+           }
+           
+.foot3 ,.foot2{
+   display: none;
+}
+
+.nav92{
+    display: block;
+}
+.hed9{
+    margin-left: 3vw;
+    margin-bottom: 10vh;
+        }
+        
+  .imgcrds{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 40px;
+  }  
+  .fa-solid{
+    margin-left: 18vw;
+  }
+
+        }
+
+
+
+
+        .fop4{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ededed;
+    }
+    
+    .cards-container {
+      position: relative;
+      padding: 0 3rem;
+      width: 80%;
+    }
+
+    .cards-wrapper {
+      display: flex;
+      gap: 2rem;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      padding: 1rem 0;
+    }
+
+    .card {
+      flex: 0 0 300px;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+    }
+
+ 
+    .card-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: goldenrod;
+      border: 1px solid goldenrod;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .card-nav.prev {
+      left: 0;
+    }
+
+    .card-nav.next {
+      right: 0;
+    }
+
+    .card-nav:disabled {
+      cursor: not-allowed;
+    }
+    .signd{
+      display: flex;
+      margin: 40px;
+      gap: 17vw;
+    }
+    .gin1{
+      font-size: 38px;
+    }
+    .gin2{
+      padding-top: 10px;
+      max-width: 35vw;
+    }
+    #jnui{
+      color: rgb(142, 130, 64);
+      font-size: small;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- Background video -->
+        <video autoplay muted loop>
+            <source src="https://assets-cug1-825v2.tajhotels.com/video/TAJ%20WEBSITE%20FILM_1920%20X%20930_148mb.mp4?Impolicy=Medium_High" type="video/mp4">
+          
+        </video>
+
+        <nav class="nav bar"> 
+            <div class="leftnav">
+                <img id="logo" src="taj-logo.png" alt="Taj Hotels Logo"/>
+                <div class="n1" id="m1">DESTINATIONS</div>
+                <div class="n1" id="m2">HOTELS</div>
+                <div class="n1" id="m3">DINING</div>
+                <div class="n1" id="m4">OFFERS</div>
+                <div class="n1" id="m5">MEMBERSHIPS</div>
+                <div class="n1" id="m6">More</div>
+            </div>
+            <div class="rightnav">
+                <div class="n1" id="m0">LOGIN / JOIN</div> 
+                <button class="book">BOOK A STAY</button>
+            </div>
+        </nav>
+
+        <button class="srch1"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="fixed-button"><i class="fa-solid fa-comment"></i></button>
+    </div>
+    <div class="ndhed">
+        <div class="global"> _______ GLOBAL ICON OF INDIAN HOSPITALITY _______ </div>
+      <div class="details">
+        <div>Enter a realm of storied halls, sophisticated delights and unrivalled indulgence.</div> 
+        <div>Immerse yourself in the grandeur of luxury at our exquisite palaces, hotels, resorts and safaris.</div>
+       </div>
+    </div>     
+               
+</div>
+    <div class="cpn">
+        <div onmouseover="changeImage('https://cdn.sanity.io/images/ocl5w36p/prod3/09ae4044148df09a98e08b3dd38015cf92fd1fb1-2880x1240.jpg?w=1600&auto=format&dpr=2')" class="card1">
+            <div class="fface">
+                <h1>TIMELESS</h1>
+            </div>
+            <div class="bface">
+                <h2>TIMELESS</h2>
+                <div>Embrace a timeless elegance that embodies sophistication and an unwavering commitment to refined excellence.</div>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('https://cdn.sanity.io/images/ocl5w36p/prod3/586418ac620e8fb5ff97f930e70282b3890ba5c7-2880x1240.jpg?w=1600&auto=format&dpr=2')" class="card2">
+            <div class="fface">
+                <h1>ICONIC</h1>
+            </div>
+            <div class="bface">
+                <h2>ICONIC</h2>
+                <div>Indulge in enduring distinction, extraordinary experiences and a legacy of unparalleled hospitality</div>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('https://cdn.sanity.io/images/ocl5w36p/prod3/e2ad203358a64bb39f11215ca5bedbdcd8917572-2880x1240.jpg?w=1600&auto=format&dpr=2')" class="card3">
+            <div class="fface">
+                <h1>AUTHENTIC</h1>
+            </div>
+            <div class="bface">
+                <h2>AUTHENTIC</h2>
+                <div>Dive into a legacy of impeccable service where true refinement unfolds in every moment of your stay.</div>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('https://cdn.sanity.io/images/ocl5w36p/prod3/1cc99ef2fab6a645e50d4256f10a090e76568529-2880x1240.jpg?w=1600&auto=format&dpr=2')" class="card4">
+            <div class="fface">
+                <h1>SOULFUL</h1>
+            </div>
+            <div class="bface">
+                <h2>SOULFUL</h2>
+                <div>Cultivate cherished memories and embrace a distinctive sense of belonging through personalised, immersive experiences.</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="fop4">
+        <div class="cards-container">
+            <div class="signd">
+              <div class="gin1">___ Signature Dining</div>
+              <div class="gin2">
+                <div class="rt1">Embark on a journey of exquisite experiences, encompassing impeccable service, sophisticated ambience and masterful culinary artistry.​</div>
+                <div class="rt2"><a id="jnui" href="https://www.tajhotels.com/en-in/restaurants">EXPLORE > </a></div>
+            </div>
+            </div>
+    
+    
+          <button class="card-nav prev">❮</button>
+          <div class="cards-wrapper">
+            
+            <div class="card">
+              <img
+                src="https://cdn.sanity.io/images/ocl5w36p/prod3/69c467744f7f1694331768d6d611bfc77582e36a-906x972.jpg?w=480&auto=format&dpr=2"
+                alt="CELEBRATED CHEFS"
+              />
+              <div class="card-content">
+                <h3>___ CELEBRATED CHEFS</h3>
+                <p>
+                   A distinguished roster of world-class talent embodying culinary excellence with expertise, creativity and precision.
+                </p>
+                
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="https://cdn.sanity.io/images/ocl5w36p/prod3/c0401c93116df10e12fea3bf9ea9662394fc9b80-906x972.jpg?w=480&auto=format&dpr=2"
+                alt="BEYOND THE ORDINARY"
+              />
+              <div class="card-content">
+                <h3>___ BEYOND THE ORDINARY </h3>
+                <p>Elegant and intricately crafted experiences unfold into bespoke service and opulent settings.</p>
+                
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="https://cdn.sanity.io/images/ocl5w36p/prod3/df050e0b9d06c94045cdbdacce64d23993a69f7a-950x1020.jpg?w=480&auto=format&dpr=2"
+                alt="SIGNATURE RECIPES"
+              />
+              <div class="card-content">
+                <h3>___ SIGNATURE RECIPES</h3>
+                <p>Culinary mastery shines as each dish highlights a medley of flavours and textures for an unforgettable dining experience.</p>
+              
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="https://cdn.sanity.io/images/ocl5w36p/prod3/2011d590b040d304174b5985c5027d65b176aeb0-906x972.jpg?w=480&auto=format&dpr=2"
+                alt="PREMIER GLOBAL CUISINES"
+              />
+              <div class="card-content">
+                <h3>___ PREMIER GLOBAL CUISINES</h3>
+                <p>Experience the best of local and world flavours where authentic ingredients and techniques blend seamlessly for unparalleled culinary harmony.</p>
+                
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="https://cdn.sanity.io/images/ocl5w36p/prod3/6f2a11fe4c3f74aebb344e214c359ba6b7a303b3-906x972.jpg?w=480&auto=format&dpr=2"
+                alt="UI/UX Design"
+              />
+              <div class="card-content">
+                <h3>___ BEYOND THE ORDINARY</h3>
+                <p>
+                    Elegant and intricately crafted experiences unfold into bespoke service and opulent settings.
+                </p>
+                
+              </div>
+            </div>
+            
+          </div>
+          <button class="card-nav next">❯</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    <div class="lm01">
+        <div class="lm1">
+             <div class="lm10">_____ EVENTS AND CONFRENCES</div>
+             <div class="lm11">Taj elevates every occasion into an awe-inspiring, immersiv experience to cherish forever.
+               </div>
+           
+            </div>
+            <div class="imgcrds">
+
+                <div class="hotl1" id="hor1">
+                    <img  class="immg1" src="https://cdn.sanity.io/images/ocl5w36p/prod3/6d34584a52ea8140cfca9cc30d693325abca5925-1400x1080.jpg?w=768&auto=format&dpr=2" alt="hotlq">
+                 <div class="wr1">MEETINGS & CONFERENCES
+                    
+                 </div>
+                </div>
+
+                <div class="hotl1" id="hor2">
+                    <img  class="immg1" src="https://cdn.sanity.io/images/ocl5w36p/prod3/d451ef209272bc10c3665a819b4865034801d2a2-1400x1080.jpg?w=768&auto=format&dpr=2" alt="hotlq">
+                    <div class="wr1">EVENTS</div>  
+                </div>
+
+                <div class="hotl1" id="hor3">
+                    <img  class="immg1" src="https://cdn.sanity.io/images/ocl5w36p/prod3/8458083aed28ec653b7d55ebe021378a6fe40b17-1400x1080.jpg?w=768&auto=format&dpr=2" alt="hotlq">
+                   <div class="wr1">TIMELESS WEDDINGS </div>
+                </div>
+            </div>
+    </div>
+    
+
+    <div class="footgrl">
+       <div class="cfegrl"> <div class="rgh">___ J WELLNESS
+            CIRCLE</div>
+            <div class="rgh2">Welcome to a sanctuary that seamlessly blends Indian heritage healing with serene contemporary comforts for the mind, body and soul. <div  class="exp">
+                <a  href="https://www.tajhotels.com/en-in/j-wellness-circle">Explore</a></div></div>
+               
+             
+        </div>
+        <img class="fotgirl" src="https://cdn.sanity.io/images/ocl5w36p/prod3/364ff44bd95cb1d3fba126a6e904b6a1040b07f0-2880x1155.jpg?w=1600&auto=format&dpr=2" alt="coffe girl">
+    </div>
+    <div class="fot1">
+        <h2 class="hed9" >iHCL</h2>
+        <div class="nav9">
+
+            <div class="foot1">
+               
+
+                  <div class="nh01">
+                    <div class="nh1" id="SUBSCRIBE_FOR_LATEST_UPDATES">SUBSCRIBE FOR LATEST UPDATES</div>
+                    <div class="nhh02">
+                        <input type="text" class="last9" placeholder="Enter your email Address"> 
+                       <button class="last19">SUBSCRIBE</button>
+                    </div>
+                  </div>
+
+                <div class="nh02">
+                    <div class="nh2">FOR BOOKINGS CONTACT</div>
+                    <div class="nhh02">
+                       <div class="nh002">1-800-111-825</div>
+                        <div class="nh002">reservations@ihcltata.com</div>
+                    </div>
+                </div>
+
+                <div class="nh03">
+                    <div class="nh3" id="CUSTOMER_SUPPORT">CUSTOMER SUPPORT</div>
+                    <div class="nhh03">
+                         <div class="nh003">contacttaj@tajhotels.com</div>
+                         <div class="nh003">website.feedback@tajhotels.com</div>
+                    </div>
+                </div>
+               
+            </div>
+            
+
+            <div class="foot2">
+                <div class="nj1">QUICK LINKS</div>
+                <div class="nj2">
+                    <div class="ll1">
+                    <div class="nj02">Hotels</div>
+                    <div class="nj02">Dining</div>
+                    <div class="nj02"> Wellness</div>
+                    <div class="nj02">Timeless Weddings</div>
+                    <div class="nj02">Event Venues</div>
+                    <div class="nj02">Taj Magazine</div>
+                    <div class="nj02"> HSBC Taj Credit Card</div>
+                </div>
+                    <div class="ll2">
+                    <div class="nj02"> About Taj</div>
+                    <div class="nj02">Holidays</div>
+                    <div class="nj02">Offers</div>
+                    <div class="nj02">Gifting</div>
+                    <div class="nj02">Neupass</div>
+                    <div class="nj02"> Epicure</div>
+                    <div class="nj02">Taj Blog</div>
+                </div>  
+                   
+
+               </div>
+            </div>
+
+            <div class="foot3">
+                <div class="nk1">CONNECT WITH US</div>
+                <div class="foticons">
+                   <a href="https://www.facebook.com/TajHotels/"><i class="fa-brands fa-facebook-f" ></i></a> 
+                   <a href="https://www.instagram.com/tajhotels/"><i class="fa-brands fa-instagram" ></i></a> 
+                    <a href="https://x.com/TajHotels"> <i class="fa-brands fa-x-twitter" ></i></a> 
+                    <a href="https://www.linkedin.com/company/taj-hotels/"><i class="fa-brands fa-linkedin"></i></a> 
+                     <a href="https://www.youtube.com/user/TajMovies"> <i class="fa-brands fa-youtube"></i></a> 
+                </div>
+              </div>
+
+        </div>
+        <div class="nav91">
+            <div class="con">
+                <div class="acc">
+                    <div class="header9">
+                        <h3 class="des">DESTINATIONS</h3>
+                        <i  class="fa-solid fa-plus" onclick="fun(0)"></i>
+                    </div>
+                    <div class="content" style="display: none;">
+                     
+                        <div >5-Star Hotels in Ahmedabad</div>
+                        <div >5-Star Hotels in Agra</div> 
+                        <div>5-Star Hotels in Amritsar</div> 
+                        <div > 5-Star Hotels in Andamans</div> 
+                        <div>5-Star Hotels in Bandhavgarh</div> 
+                        <div>5-Star Hotels in Bekal</div> 
+                        <div>  5-Star Hotels in Bengaluru</div> 
+                        <div> 5-Star Hotels in Bentota</div> 
+                        <div> 5-Star Hotels in Bhopal</div> 
+                        <div>5-Star Hotels in Cape Town</div> 
+                        <div> 5-Star Hotels in Chandigarh</div> 
+                        <div>5-Star Hotels in Chennai</div> 
+                        <div>5-Star Hotels in Chitwan</div>
+                        <div>5-Star Hotels in Colombo</div> 
+                        <div>5-Star Hotels in Coorg</div> 
+                        <div>5-Star Hotels in Darjeeling</div> 
+                        <div>5-Star Hotels in Dubai</div> 
+                        <div>5-Star Hotels in Gandhinagar</div> 
+                        <div>5-Star Hotels in Gangtok</div> 
+                        <div>5-Star Hotels in Goa</div> 
+                        <div>5-Star Hotels in Gurgaon</div> 
+                        <div>5-Star Hotels in Gwalior</div> 
+                        <div>5-Star Hotels in Havelock</div> 
+                        <div>5-Star Hotels in Hyderabad</div> 
+                        <div>5-Star Hotels in Jaipur</div> 
+                        <div>5-Star Hotels in Jim Corbett</div>
+                        <div>5-Star Hotels in Jodhpur</div>
+                        <div>5-Star Hotels in Kanha</div>
+                       <div> 5-Star Hotels in Kerala</div>
+                       <div> 5-Star Hotels in Kochi</div>
+                       <div>5-Star Hotels in Kolkata</div>
+                       <div>5-Star Hotels in Kovalam</div>
+                       <div> 5-Star Hotels in Kumarakom</div>
+                        <div> 5-Star Hotels in London</div>
+                        <div> 5-Star Hotels in Lucknow</div>
+                        <div> 5-Star Hotels in Lusaka</div>
+                        <div> 5-Star Hotels in Madikeri</div>
+                        <div> 5-Star Hotels in Maldives</div>
+                        <div>5-Star Hotels in Mumbai</div>
+                        <div> 5-Star Hotels in New Delhi</div>
+                        <div>5-Star Hotels in New York</div>
+                        <div> 5-Star Hotels in Panna</div>
+                        <div> 5-Star Hotels in Pench</div>
+                        <div>5-Star Hotels in Rajasthan</div>
+                        <div>5-Star Hotels in Ranthambore</div>
+                        <div> 5-Star Hotels in Rishikesh</div>
+                        <div> 5-Star Hotels in San Francisco</div>
+                        <div>5-Star Hotels in Shimla</div>
+                        <div>5-Star Hotels in Tirupati</div>
+                        <div>  5-Star Hotels in Varanasi</div>
+                        <div> 5-Star Hotels in Udaipur</div>
+                        <div> 5-Star Hotels in Wayanad</div>
+                </div>
+            
+                
+            
+        <div class="nav903">
+            <img class="brand7" src="taj01.svg" alt="Taj">
+            <img class="brand7" src="Seq2.svg" alt="SElEQtions">
+            <img class="brand7" src="gat3.svg" alt="GATE WAY">
+            <img class="brand7" src="viv3.svg" alt="VIVANRA">
+            <img class="brand7" src="gin4.svg" alt="GINGER">
+            <img class="brand7" src="tree5.svg" alt="TREE of life">
+            <img class="brand7" src="ama6.svg" alt="AMA">
+            <img class="brand7" src="q8.svg" alt="Qumine">
+            <img class="brand7" src="taj7.svg" alt="Q Taj">
+        </div>
+
+        <div class="nav92">
+           <p class="leftb">© 2025 The Indian Hotels Company Limited. All Rights Reserved.</p>
+            <div class="rite">
+                
+             <p>Corporate |</p>
+               <p>Pressroom |</p>
+                <p>Work With Us |</p>
+                 <p>Terms of Service</p> 
+                 <p> Accessibility </p> 
+                  <p>Investor Relations |</p> 
+                   <p>  Partners |</p> 
+                   <p>Privacy Policy |</p>
+                   <p>Cookies Policy | </p>
+           
+                
+                </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        // JavaScript function to change the background image on hover
+        function changeImage(image) {
+            document.querySelector('.cpn').style.backgroundImage = `url(${image})`;
+        }
+
+
+        let cr=document.getElementsByClassName("content")
+        let ir=document.getElementsByClassName("fa-plus")
+        let dr= document.getElementsByClassName("fot1")
+        let i=0
+        let fun=(ind)=>{
+            if(ind==i)
+        {
+            if(cr[ind].style.display=="none")
+        {
+            cr[ind].style.display="grid"
+            ir[ind].className="fa-solid fa-minus"
+            dr[ind].style.height="120vh"
+
+        }
+        else{
+                cr[ind].style.display="none"
+                ir[ind].className="fa-solid fa-plus"
+                dr[ind].style.height="80vh"
+        }
+    }
+    else{
+        cr[i].style.display="none"
+        ir[i].className="fa-solid fa-plus"
+        cr[ind].style.display="grid"
+        ir[ind].className="fa-solid fa-minus"
+        i=ind
+
+    }
+
+        }
+
+
+
+        let cardswrapper = document.querySelector(".cards-wrapper");
+      let prebtn = document.querySelector(".prev");
+      let nextbtn = document.querySelector(".next");
+      let cards = document.querySelectorAll(".card");
+
+      let cardWidth = 300 + 32; //card width plus padding
+
+      // Function to check and update button states
+      function updateButtonStates() {
+        prebtn.disabled = cardswrapper.scrollLeft <= 0;
+
+        nextbtn.disabled =
+          cardswrapper.scrollLeft + cardswrapper.clientWidth >=
+          cardswrapper.scrollWidth;
+      }
+
+      // Scroll event to update button states dynamically
+      cardswrapper.addEventListener("scroll", updateButtonStates);
+
+      prebtn.addEventListener("click", () => {
+        cardswrapper.scrollBy({ left: -cardWidth, behavior: "smooth" });
+      });
+
+      nextbtn.addEventListener("click", () => {
+        cardswrapper.scrollBy({ left: cardWidth, behavior: "smooth" });
+      });
+
+      updateButtonStates();
+    </script>
+</body>
+</html>
